@@ -9,7 +9,7 @@ import { HttpService } from '../../service/http.service';
 })
 export class HomeComponent implements OnInit {
 
-  public employeeCount: number = 10;
+  public employeeCount: number = 0;
   public employeeDetails: Employee[] = [];
 
   constructor(private httpService: HttpService) {
