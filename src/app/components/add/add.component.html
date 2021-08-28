@@ -1,7 +1,7 @@
 <app-header></app-header>
 <div class="form-content">
 
-  <form class="form" action="#" [formGroup]= "employeeFormGroup">
+  <form class="form" [formGroup]= "employeeFormGroup">
 
     <div class="form-head">Employee Payroll Form</div>
 
@@ -17,19 +17,19 @@
     <div class="row-content">
       <label class="label text" for="profile">Profile Image</label>
       <div class="profile-radio-content">
-        <mat-radio-button class=profile-width id="profile1" name="profile" color="primary"
+        <mat-radio-button type="radio" id="profile1" name="profile" color="primary"
           value="../assets/profile-images/Ellipse -4.png" required>
           <img class="profile" id='image1' src="../assets/profile-images/Ellipse -4.png">
         </mat-radio-button>
-        <mat-radio-button class=profile-width id="profile2" name="profile" color="primary"
+        <mat-radio-button type="radio" id="profile2" name="profile" color="primary"
           value="../assets/profile-images/Ellipse -5.png" required>
           <img class="profile" id='image2' src="../assets/profile-images/Ellipse -5.png">
         </mat-radio-button>
-        <mat-radio-button class=profile-width id="profile3" name="profile" color="primary"
+        <mat-radio-button type="radio" id="profile3" name="profile" color="primary"
           value="../assets/profile-images/Ellipse -7.png" required>
           <img class="profile" id='image3' src="../assets/profile-images/Ellipse -7.png">
         </mat-radio-button>
-        <mat-radio-button class=profile-width id="profile4" name="profile" color="primary"
+        <mat-radio-button type="radio" id="profile4" name="profile" color="primary" 
           value="../assets/profile-images/Ellipse -8.png" required>
           <img class="profile" id='image4' src="../assets/profile-images/Ellipse -8.png">
         </mat-radio-button>
@@ -40,10 +40,10 @@
     <div class="row-content">
       <label class="label text" for="gender">Gender</label>
       <div>
-        <mat-radio-button type="radio" id="male" name="gender" color="primary" value="male" required>
+        <mat-radio-button type="radio" id="male" name="gender" color="primary" value="male" ngDefaultControl formControlName="gender" required>
           <label class="text" for="male">Male</label>
         </mat-radio-button>
-        <mat-radio-button type="radio" id="female" name="gender" color="primary" value="female" required>
+        <mat-radio-button type="radio" id="female" name="gender" color="primary" value="female" ngDefaultControl formControlName="gender" required>
           <label class="text" for="female">Female</label>
         </mat-radio-button>
       </div>
@@ -52,19 +52,19 @@
     <!------Input Department------->
     <div class="row-content">
       <label class="label text" for="depatment">Department</label>
-      <mat-checkbox class="checkbox" id="hr" color="primary" name="department" value="HR">
+      <mat-checkbox class="checkbox" id="hr" color="primary" name="department" value="HR" ngDefaultControl formControlName="hr">
         <label class="text" for="hr">HR</label>
       </mat-checkbox>
-      <mat-checkbox class="checkbox" id="sales" color="primary" name="department" value="Sales">
+      <mat-checkbox class="checkbox" id="sales" color="primary" name="department" value="Sales" ngDefaultControl formControlName="sales">
         <label class="text" for="sales">Sales</label>
       </mat-checkbox>
-      <mat-checkbox class="checkbox" id="finance" color="primary" name="department" value="Finance">
+      <mat-checkbox class="checkbox" id="finance" color="primary" name="department" value="Finance" ngDefaultControl formControlName="finance">
         <label class="text" for="finance">Finance</label>
       </mat-checkbox>
-      <mat-checkbox class="checkbox" id="engineer" color="primary" name="department" value="Engineer">
+      <mat-checkbox class="checkbox" id="engineer" color="primary" name="department" value="Engineer" ngDefaultControl formControlName="engineer">
         <label class="text" for="engineer">Engineer</label>
       </mat-checkbox>
-      <mat-checkbox class="checkbox" id="other" color="primary" name="department" value="Other">
+      <mat-checkbox class="checkbox" id="other" color="primary" name="department" value="Other" ngDefaultControl formControlName="other">
         <label class="text" for="engineer">Other</label>
       </mat-checkbox>
     </div>
@@ -168,6 +168,11 @@
         <button mat-stroked-button type="submit" class="button submitButton" id="submitButton">Submit</button>
         <button mat-stroked-button type="reset" class="resetButton button">Reset</button>
       </div>
+      <!-- <div class="submit-reset">
+        <button mat-raised-button color="accent" type="submit" class="button submitButton"
+          id="submitButton">Submit</button>
+        <button mat-raised-button color="accent" type="reset" class="resetButton button">Reset</button>
+      </div> -->
     </div>
   </form>
 </div>

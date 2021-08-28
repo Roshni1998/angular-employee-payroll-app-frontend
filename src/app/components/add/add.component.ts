@@ -12,24 +12,19 @@ export class AddComponent implements OnInit {
   public employee: Employee = new Employee();
   public employeeFormGroup: FormGroup = new FormGroup({
     fullName: new FormControl(''),
-    profilePic: new FormControl(''),
-    gender: new FormControl('')
-  });
-  
+    profilePic: new FormControl('../assets/profile-images/Ellipse -4.png'),
+    gender: new FormControl(''),
+    hr: new FormControl(false),
+    sales: new FormControl(false),
+    finance: new FormControl(false),
+    engineer: new FormControl(false),
+    other: new FormControl(false)
+  })
 
   constructor() { }
 
-  formatLabel(value: number) {
-    if (value >= 1000) {
-      return Math.round(value / 1000) + 'k';
-    }
-    return value;
-  }
-
-  // onSubmit(){
-  //   console.log(this.employee);
-  // }
-
   ngOnInit(): void {
+    console.log(this.employee);
   }
+  
 }
