@@ -1,36 +1,37 @@
 <app-header></app-header>
 <div class="form-content">
-  <form class="form">
+
+  <form class="form" action="#" [formGroup]= "employeeFormGroup">
 
     <div class="form-head">Employee Payroll Form</div>
 
     <!-------Input Name--------->
     <div class="row-content">
-      <mat-form-field class="example-full-width" appearance="fill">
+      <mat-form-field class="example-full-width" appearance="outline">
         <mat-label>Full Name</mat-label>
-        <input id="name" class="name-input" matInput placeholder="Your Name" required>
+        <input class="name-input" matInput formControlName="fullName" required>
       </mat-form-field>
     </div>
 
     <!------Profile Image---------->
     <div class="row-content">
-      <label class="label text" for="profile">Profile Image </label>
+      <label class="label text" for="profile">Profile Image</label>
       <div class="profile-radio-content">
-        <mat-radio-button class=profile-width id="profile4" name="profile" color="primary"
+        <mat-radio-button class=profile-width id="profile1" name="profile" color="primary"
           value="../assets/profile-images/Ellipse -4.png" required>
-          <img class="profile" id='image4' src="../assets/profile-images/Ellipse -4.png">
+          <img class="profile" id='image1' src="../assets/profile-images/Ellipse -4.png">
         </mat-radio-button>
-        <mat-radio-button class=profile-width id="profile5" name="profile" color="primary"
+        <mat-radio-button class=profile-width id="profile2" name="profile" color="primary"
           value="../assets/profile-images/Ellipse -5.png" required>
-          <img class="profile" id='image5' src="../assets/profile-images/Ellipse -5.png">
+          <img class="profile" id='image2' src="../assets/profile-images/Ellipse -5.png">
         </mat-radio-button>
-        <mat-radio-button class=profile-width id="profile6" name="profile" color="primary"
+        <mat-radio-button class=profile-width id="profile3" name="profile" color="primary"
           value="../assets/profile-images/Ellipse -7.png" required>
-          <img class="profile" id='image6' src="../assets/profile-images/Ellipse -7.png">
+          <img class="profile" id='image3' src="../assets/profile-images/Ellipse -7.png">
         </mat-radio-button>
-        <mat-radio-button class=profile-width id="profile7" name="profile" color="primary"
+        <mat-radio-button class=profile-width id="profile4" name="profile" color="primary"
           value="../assets/profile-images/Ellipse -8.png" required>
-          <img class="profile" id='image7' src="../assets/profile-images/Ellipse -8.png">
+          <img class="profile" id='image4' src="../assets/profile-images/Ellipse -8.png">
         </mat-radio-button>
       </div>
     </div>
@@ -51,21 +52,19 @@
     <!------Input Department------->
     <div class="row-content">
       <label class="label text" for="depatment">Department</label>
-      <mat-checkbox class="checkbox" id="hr" color="primary" name="department" formControlName="HR" value="HR">
+      <mat-checkbox class="checkbox" id="hr" color="primary" name="department" value="HR">
         <label class="text" for="hr">HR</label>
       </mat-checkbox>
-      <mat-checkbox class="checkbox" id="sales" color="primary" name="department" formControlName="Sales" value="Sales">
+      <mat-checkbox class="checkbox" id="sales" color="primary" name="department" value="Sales">
         <label class="text" for="sales">Sales</label>
       </mat-checkbox>
-      <mat-checkbox class="checkbox" id="finance" color="primary" name="department" formControlName="Finance"
-        value="Finance">
+      <mat-checkbox class="checkbox" id="finance" color="primary" name="department" value="Finance">
         <label class="text" for="finance">Finance</label>
       </mat-checkbox>
-      <mat-checkbox class="checkbox" id="engineer" color="primary" name="department" formControlName="Engineer"
-        value="Engineer">
+      <mat-checkbox class="checkbox" id="engineer" color="primary" name="department" value="Engineer">
         <label class="text" for="engineer">Engineer</label>
       </mat-checkbox>
-      <mat-checkbox class="checkbox" id="other" color="primary" name="department" formControlName="Other" value="Other">
+      <mat-checkbox class="checkbox" id="other" color="primary" name="department" value="Other">
         <label class="text" for="engineer">Other</label>
       </mat-checkbox>
     </div>
@@ -80,76 +79,81 @@
     </div>
 
     <!-------Input Date------>
-    <mat-form-field appearance="outline">
-      <mat-label>Day</mat-label>
-      <mat-select>
-        <mat-option value="1">1</mat-option>
-        <mat-option value="2">2</mat-option>
-        <mat-option value="3">3</mat-option>
-        <mat-option value="4">4</mat-option>
-        <mat-option value="5">5</mat-option>
-        <mat-option value="6">6</mat-option>
-        <mat-option value="7">7</mat-option>
-        <mat-option value="8">8</mat-option>
-        <mat-option value="9">9</mat-option>
-        <mat-option value="10">10</mat-option>
-        <mat-option value="11">11</mat-option>
-        <mat-option value="12">12</mat-option>
-        <mat-option value="13">13</mat-option>
-        <mat-option value="14">14</mat-option>
-        <mat-option value="15">15</mat-option>
-        <mat-option value="16">16</mat-option>
-        <mat-option value="17">17</mat-option>
-        <mat-option value="18">18</mat-option>
-        <mat-option value="19">19</mat-option>
-        <mat-option value="20">20</mat-option>
-        <mat-option value="21">21</mat-option>
-        <mat-option value="22">22</mat-option>
-        <mat-option value="23">23</mat-option>
-        <mat-option value="24">24</mat-option>
-        <mat-option value="25">25</mat-option>
-        <mat-option value="26">26</mat-option>
-        <mat-option value="27">27</mat-option>
-        <mat-option value="28">28</mat-option>
-        <mat-option value="29">29</mat-option>
-        <mat-option value="30">30</mat-option>
-        <mat-option value="31">31</mat-option>
-      </mat-select>
-    </mat-form-field>
+    <div class="row-content">
+      <label class="label text" for="startdate">Start Date</label>
+      <mat-form-field appearance="outline">
+        <mat-label>Day</mat-label>
+        <mat-select>
+          <mat-option value="1">1</mat-option>
+          <mat-option value="2">2</mat-option>
+          <mat-option value="3">3</mat-option>
+          <mat-option value="4">4</mat-option>
+          <mat-option value="5">5</mat-option>
+          <mat-option value="6">6</mat-option>
+          <mat-option value="7">7</mat-option>
+          <mat-option value="8">8</mat-option>
+          <mat-option value="9">9</mat-option>
+          <mat-option value="10">10</mat-option>
+          <mat-option value="11">11</mat-option>
+          <mat-option value="12">12</mat-option>
+          <mat-option value="13">13</mat-option>
+          <mat-option value="14">14</mat-option>
+          <mat-option value="15">15</mat-option>
+          <mat-option value="16">16</mat-option>
+          <mat-option value="17">17</mat-option>
+          <mat-option value="18">18</mat-option>
+          <mat-option value="19">19</mat-option>
+          <mat-option value="20">20</mat-option>
+          <mat-option value="21">21</mat-option>
+          <mat-option value="22">22</mat-option>
+          <mat-option value="23">23</mat-option>
+          <mat-option value="24">24</mat-option>
+          <mat-option value="25">25</mat-option>
+          <mat-option value="26">26</mat-option>
+          <mat-option value="27">27</mat-option>
+          <mat-option value="28">28</mat-option>
+          <mat-option value="29">29</mat-option>
+          <mat-option value="30">30</mat-option>
+          <mat-option value="31">31</mat-option>
+        </mat-select>
+      </mat-form-field>
 
-    <mat-form-field appearance="outline">
-      <mat-label>Month</mat-label>
-      <mat-select>
-        <mat-option value="Jan">January</mat-option>
-        <mat-option value="Feb">Febuary</mat-option>
-        <mat-option value="March">March</mat-option>
-        <mat-option value="April">April</mat-option>
-        <mat-option value="May">May</mat-option>
-        <mat-option value="June">June</mat-option>
-        <mat-option value="July">July</mat-option>
-        <mat-option value="Aug">August</mat-option>
-        <mat-option value="Sept">September</mat-option>
-        <mat-option value="Oct">October</mat-option>
-        <mat-option value="Nov">November</mat-option>
-        <mat-option value="Dec">December</mat-option>
-      </mat-select>
-    </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Month</mat-label>
+        <mat-select>
+          <mat-option value="Jan">January</mat-option>
+          <mat-option value="Feb">Febuary</mat-option>
+          <mat-option value="March">March</mat-option>
+          <mat-option value="April">April</mat-option>
+          <mat-option value="May">May</mat-option>
+          <mat-option value="June">June</mat-option>
+          <mat-option value="July">July</mat-option>
+          <mat-option value="Aug">August</mat-option>
+          <mat-option value="Sept">September</mat-option>
+          <mat-option value="Oct">October</mat-option>
+          <mat-option value="Nov">November</mat-option>
+          <mat-option value="Dec">December</mat-option>
+        </mat-select>
+      </mat-form-field>
 
-    <mat-form-field appearance="outline">
-      <mat-label>Year</mat-label>
-      <mat-select>
-        <mat-option value="2020">2021</mat-option>
-        <mat-option value="2020">2020</mat-option>
-        <mat-option value="2019">2019</mat-option>
-        <mat-option value="2018">2018</mat-option>
-        <mat-option value="2017">2017</mat-option>
-        <mat-option value="2016">2016</mat-option>
-      </mat-select>
-    </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Year</mat-label>
+        <mat-select>
+          <mat-option value="2020">2021</mat-option>
+          <mat-option value="2020">2020</mat-option>
+          <mat-option value="2019">2019</mat-option>
+          <mat-option value="2018">2018</mat-option>
+          <mat-option value="2017">2017</mat-option>
+          <mat-option value="2016">2016</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+    </div>
+
 
     <!------Input Notes------->
     <div class="row-content">
-      <mat-form-field class="example-full-width" appearance="fill">
+      <mat-form-field class="example-full-width" appearance="outline">
         <mat-label>Notes</mat-label>
         <textarea matInput id="notes" class="input" name="Notes" placeholder="Write the Note" style="height:100px"
           required></textarea>
@@ -158,12 +162,11 @@
 
     <div class="buttonParent">
       <a routerLink="/home">
-        <button mat-raised-button color="accent" class="resetButton button cancelButton">Cancel</button>
+        <button mat-stroked-button class="resetButton button cancelButton">Cancel</button>
       </a>
       <div class="submit-reset">
-        <button mat-raised-button color="accent" type="submit" class="button submitButton"
-          id="submitButton">Submit</button>
-        <button mat-raised-button color="accent" type="reset" class="resetButton button">Reset</button>
+        <button mat-stroked-button type="submit" class="button submitButton" id="submitButton">Submit</button>
+        <button mat-stroked-button type="reset" class="resetButton button">Reset</button>
       </div>
     </div>
   </form>

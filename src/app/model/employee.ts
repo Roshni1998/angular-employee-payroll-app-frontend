@@ -1,14 +1,10 @@
 export class Employee {
-  constructor(
-    id: number,
-    name: string,
-    department: string[],
-    profilePic: string,
-    gender: string,
-    salary: string,
-    startDate: Date,
-    note: string
-  ) {
-
-  }
+  id: number;
+  name: string;
+  department: string[];
+  profilePic: string;
+  gender: string;
+  salary: string;
+  startDate: Date
+  note: string;
 }
