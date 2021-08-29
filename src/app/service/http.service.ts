@@ -14,4 +14,8 @@ export class HttpService {
   getEmployeeData(): Observable<any> {
     return this.httpClient.get("http://localhost:8080/employeepayrollservice/get");
   }
+
+  addEmployeeData(body: any): Observable<any> {
+    return this.httpClient.post("http://localhost:8080/employeepayrollservice/create", body);
+  }
 }

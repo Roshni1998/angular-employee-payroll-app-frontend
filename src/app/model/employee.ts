@@ -5,6 +5,6 @@ export class Employee {
   profilePic!: string;
   gender!: string;
   salary!: string;
-  startDate!: Date
+  startDate!: Date;
   note!: string;
 }
