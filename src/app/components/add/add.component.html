@@ -9,9 +9,10 @@
     <div class="row-content">
       <mat-form-field class="example-full-width" appearance="outline">
         <mat-label>Full Name</mat-label>
-        <input class="name-input" matInput formControlName="name">
+        <input type="name" class="name-input" matInput formControlName="name">
         <!-- <mat-error *ngIf="checkError('name', 'required')">Name is required!</mat-error>
         <mat-error *ngIf="checkError('name', 'pattern')">Name should start with uppercase and consist of at least 3 characters!</mat-error> -->
+        <!-- <span class="mat-error" *ngIf="name.touched">Name is required!</span> -->
       </mat-form-field>
     </div>
 

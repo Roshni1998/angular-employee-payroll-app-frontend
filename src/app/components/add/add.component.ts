@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Employee } from 'src/app/model/employee';
 import { MatCheckboxChange } from '@angular/material/checkbox';
@@ -130,15 +130,91 @@ export class AddComponent implements OnInit {
        return Math.round(value / 1000) + 'k';
      }
      return value;
-    }
-  
-   onSubmit() {
-     this.employee = this.employeeFormGroup.value;
-     this.httpService.addEmployeeData(this.employee).subscribe(response => {
-       console.log(response);
-       this.router.navigateByUrl("/home");
-       this.snackBar.open('Employee Added Successfully!', 'OK', {duration: 4000, verticalPosition: 'top'});
-     });   
-  }
+   }
 
+  //  onSubmit() {
+  //    this.employee = this.employeeFormGroup.value;
+    //  this.httpService.addEmployeeData(this.employee).subscribe(response => {
+    //    console.log(response);
+    //    this.router.navigateByUrl("/home");
+    //    this.snackBar.open('Employee Added Successfully!', 'OK', {duration: 4000, verticalPosition: 'top'});
+    //  });
+
+  onSubmit(){
+    if(this.employeeFormGroup.invalid){
+      if(this.employeeFormGroup.get('profilePic').untouched) {
+        this.snackBar.open('Select the Profile Pic', '', {duration: 4000, verticalPosition: 'top'});
+      }
+      if(this.employeeFormGroup.get('gender').untouched) {
+        this.snackBar.open('Select the Gender', '', {duration: 4000, verticalPosition: 'top'});
+      }
+      if(this.employeeFormGroup.get('department').value.length == 0) {
+            this.snackBar.open('Deparment needs to be filled!', '', {duration: 4000, verticalPosition: 'top'});
+      }
+    } else{
+      this.employee = this.employeeFormGroup.value;
+      if(this.activatedRoute.snapshot.params['id'] != undefined){
+        this.httpService.updateEmployeData(this.activatedRoute.snapshot.params['id'], this.employee).subscribe(response => {
+          console.log(response);
+          this.ngOnInit();
+          this.router.navigateByUrl("/home");
+          this.snackBar.open('Updated Successfully!', 'OK', {duration: 4000, verticalPosition: 'top'});
+        });
+      }else {
+        this.httpService.addEmployeeData(this.employee).subscribe(response => {
+          console.log(response);
+          this.router.navigateByUrl("/home");
+          this.snackBar.open('Employee Added Successfully!', 'OK', {duration: 4000, verticalPosition: 'top'});
+        });
+      }
+    }
+  }
 }
+     
+
+//   onSubmit() {
+//     if(this.employeeFormGroup.invalid) {
+//       if(this.employeeFormGroup.get('profilePic').untouched) {
+//         this.snackBar.open('Select the Profile Pic', '', {duration: 4000, verticalPosition: 'top'});
+//       } 
+      
+//       if(this.employeeFormGroup.get('gender').untouched) {
+//           this.snackBar.open('Select the Gender', '', {duration: 4000, verticalPosition: 'top'});
+//       }
+
+//       if(this.employeeFormGroup.get('department').value.length == 0) {
+//             this.snackBar.open('Deparment needs to be filled!', '', {duration: 4000, verticalPosition: 'top'});
+//       }
+//     } else {
+//       this.employee = this.employeeFormGroup.value;
+//       if(this.activatedRoute.snapshot.params['id'] != undefined) {
+//         this.httpService.updateEmployeData(this.activatedRoute.snapshot.params['id'], this.employee).subscribe(response => {
+//           console.log(response);
+//           this.ngOnInit();
+//           this.router.navigateByUrl("/home");
+//         });
+//       } else {
+//         this.httpService.addEmployeeData(this.employee).subscribe(response => {
+//         console.log(response);
+//         this.router.navigateByUrl("/home");
+//         this.snackBar.open('Employee Added Successfully!', 'OK', {duration: 4000, verticalPosition: 'top'});
+//       });
+//       this.snackBar.open('Updated Successfully!', 'OK', {duration: 4000, verticalPosition: 'top'});
+//     }
+//   }
+// }
+
+
+  
+
+  // update(employee: Employee): void {
+  //   this.dataService.changeEmployee(employee);
+  //   this.router.navigateByUrl('/add/' + employee.id);
+  //   this.httpService.updateEmployeData(employee.id, employee).subscribe(response => {
+  //     console.log(response);
+  //     this.ngOnInit();
+  //     this.snackBar.open('Updated Successfully!', 'OK', {duration: 4000, verticalPosition: 'top'});
+  //   });
+  // }
+  
+
