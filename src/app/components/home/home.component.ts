@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { Employee } from 'src/app/model/employee';
 import { DataService } from 'src/app/service/data.service';
@@ -14,12 +15,11 @@ export class HomeComponent implements OnInit {
 
   public employeeCount: number = 0; 
   public employeeDetails: Employee[] = [];
-  //private employee: Employee | undefined ;
-  private employee: String = "employee";
 
   constructor(private httpService: HttpService, 
               private router: Router,
-              private dataService: DataService) { }
+              private dataService: DataService,
+              private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.httpService.getEmployeeData().subscribe(data => {
@@ -33,6 +33,7 @@ export class HomeComponent implements OnInit {
     this.httpService.deleteEmployeeData(id).subscribe(response => {
       console.log(response);
       this.ngOnInit();
+      this.snackBar.open('Deleted Successfully!', '', {duration: 4000, verticalPosition: 'top'});
     });
   }
 
