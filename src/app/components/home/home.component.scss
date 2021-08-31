@@ -109,13 +109,14 @@ td img {
 }
 
 .dept-label {
-  background-color: #e9fea5;
-  border-radius: 40%;
-  width: fit-content;
+  background: #E9FEA5 0% 0% no-repeat padding-box;
+  border-radius: 13px;
+  width: auto;
   padding: 1px 7px;
   text-align: center;
   font-size: 14px;
   display: inline-block;
   font-weight: 300;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
+  opacity: 1;
 }

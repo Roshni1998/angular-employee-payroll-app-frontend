@@ -77,13 +77,6 @@ export class AddComponent implements OnInit {
       this.dataService.currentEmployee.subscribe(employee => {
         if(Object.keys(employee).length !== 0) {
           console.log(employee);
-          // this.employeeFormGroup.get('name')?.setValue(employee.name);
-          // this.employeeFormGroup.patchValue({ 'profilePic': employee.profilePic });
-          // this.employeeFormGroup.patchValue({ 'gender': employee.gender });
-          // this.employeeFormGroup.get('salary')?.setValue(employee.salary);
-          // this.employeeFormGroup.get('startDate')?.setValue(employee.startDate);
-          // this.employeeFormGroup.get('note')?.setValue(employee.note);
-
           this.employeeFormGroup.get('name').setValue(employee.name);
           this.employeeFormGroup.get('profilePic').setValue(employee.profilePic);
           this.employeeFormGroup.get('gender').setValue(employee.gender);
@@ -138,7 +131,6 @@ export class AddComponent implements OnInit {
 
    onSubmit() {
      this.employee = this.employeeFormGroup.value;
-
      this.httpService.addEmployeeData(this.employee).subscribe(response => {
        console.log(response);
        this.router.navigateByUrl("/home");
