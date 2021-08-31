@@ -32,14 +32,6 @@
             <td>{{employee.salary}}</td>
             <td>{{employee.startDate}}</td>
             <td>
-                 <!-- <img id={{employee.id}} (click)="remove(employee.empId)"
-                    src="../assets/icons/delete-black-18dp.svg"
-                    alt="delete"> -->
-
-                <!-- <a routerLink="/add/{{employee.id}}">
-                    <img id={{employee.id}} onclick="update(this)"
-                    src="../assets/icons/create-black-18dp.svg" alt="edit">
-                </a>  -->
                 <img id={{employee.id}} src="../assets/icons/delete-black-18dp.svg" alt="delete" (click)="remove(employee.id)">
                 &nbsp;
                 <img id={{employee.id}} src="../assets/icons/create-black-18dp.svg" alt="edit" (click)="update(employee)"> 

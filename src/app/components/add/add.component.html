@@ -9,7 +9,9 @@
     <div class="row-content">
       <mat-form-field class="example-full-width" appearance="outline">
         <mat-label>Full Name</mat-label>
-        <input class="name-input" matInput formControlName="name" required>
+        <input class="name-input" matInput formControlName="name">
+        <!-- <mat-error *ngIf="checkError('name', 'required')">Name is required!</mat-error>
+        <mat-error *ngIf="checkError('name', 'pattern')">Name should start with uppercase and consist of at least 3 characters!</mat-error> -->
       </mat-form-field>
     </div>
 
@@ -101,11 +103,13 @@
         <button mat-raised-button color="accent" class="resetButton button cancelButton">Cancel</button>
       </a>
       <div class="submit-reset">
-        <button mat-raised-button color="accent" type="submit" class="button submitButton"
-          id="submitButton">Submit</button>
+        <!-- <button mat-raised-button color="accent" type="submit" class="button submitButton"
+          id="submitButton">Submit</button> -->
+          <button mat-raised-button type="submit" class="button submitButton" id="submitButton">Submit</button>
         <button mat-raised-button color="accent" type="reset" class="resetButton button">Reset</button>
       </div>
     </div>
 
   </form>
 </div>
+<!-- (click)="openSnackBar('Form Submitted Successfully!', 'OK')" -->

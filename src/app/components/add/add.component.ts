@@ -5,6 +5,7 @@ import { MatCheckboxChange } from '@angular/material/checkbox';
 import { HttpService } from '../../service/http.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from 'src/app/service/data.service';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-add',
@@ -15,6 +16,7 @@ export class AddComponent implements OnInit {
 
   public employee: Employee = new Employee();
   employeeFormGroup: FormGroup;
+  
 
    /**
    * Array of objects to store departments
@@ -60,15 +62,16 @@ export class AddComponent implements OnInit {
                 private httpService: HttpService, 
                 private router: Router,
                 private dataService: DataService, 
-                private activatedRoute: ActivatedRoute) {
+                private activatedRoute: ActivatedRoute,
+                private snackBar: MatSnackBar) {
       this.employeeFormGroup = this.formBuilder.group({
-        name: new FormControl(''),
-        profilePic: new FormControl(''),
-        gender: new FormControl(''),
+        name: new FormControl('', [Validators.required, Validators.pattern("^[A-Z][a-zA-Z\\s]{2,}$")]),
+        profilePic: new FormControl('', [Validators.required]),
+        gender: new FormControl('', [Validators.required]),
         department: this.formBuilder.array([], [Validators.required]),
-        salary: new FormControl(''),
-        startDate: new FormControl(''),
-        note: new FormControl('') 
+        salary: new FormControl('', [Validators.required]),
+        startDate: new FormControl('', [Validators.required]),
+        note: new FormControl('', [Validators.required]) 
       })
     }
 
@@ -127,14 +130,15 @@ export class AddComponent implements OnInit {
        return Math.round(value / 1000) + 'k';
      }
      return value;
-   }
-
+    }
+  
    onSubmit() {
      this.employee = this.employeeFormGroup.value;
      this.httpService.addEmployeeData(this.employee).subscribe(response => {
        console.log(response);
        this.router.navigateByUrl("/home");
-     })
+       this.snackBar.open('Employee Added Successfully!', 'OK', {duration: 4000, verticalPosition: 'top'});
+     });   
   }
-  
+
 }
