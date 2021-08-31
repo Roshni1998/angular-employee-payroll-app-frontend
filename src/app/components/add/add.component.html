@@ -17,26 +17,28 @@
     <div class="row-content">
       <label class="label text" for="profile">Profile Image </label>
       <div class="profile-radio-content">
-        <mat-radio-button class=profile-width id="profile1" name="profile" color="primary" ngDefaultControl
-          formControlName="profilePic" value="../assets/profile-images/Ellipse -1.png" required>
+        <mat-radio-group ngDefaultControl formControlName="profilePic">
+          <mat-radio-button class=profile-width id="profile1" name="profile" color="primary" 
+           value="../assets/profile-images/Ellipse -1.png" required>
           <img class="profile" id='image1' src="../assets/profile-images/Ellipse -1.png">
         </mat-radio-button>
-        <mat-radio-button class=profile-width id="profile2" name="profile" color="primary" ngDefaultControl
-          formControlName="profilePic" value="../assets/profile-images/Ellipse -2.png" required>
+        <mat-radio-button class=profile-width id="profile2" name="profile" color="primary" 
+           value="../assets/profile-images/Ellipse -2.png" required>
           <img class="profile" id='image2' src="../assets/profile-images/Ellipse -2.png">
         </mat-radio-button>
-        <mat-radio-button class=profile-width id="profile3" name="profile" color="primary" ngDefaultControl
-          formControlName="profilePic" value="../assets/profile-images/Ellipse -3.png" required>
+        <mat-radio-button class=profile-width id="profile3" name="profile" color="primary" 
+           value="../assets/profile-images/Ellipse -3.png" required>
           <img class="profile" id='image3' src="../assets/profile-images/Ellipse -3.png">
         </mat-radio-button>
-        <mat-radio-button class=profile-width id="profile4" name="profile" color="primary" ngDefaultControl
-          formControlName="profilePic" value="../assets/profile-images/Ellipse -4.png" required>
+        <mat-radio-button class=profile-width id="profile4" name="profile" color="primary" 
+           value="../assets/profile-images/Ellipse -4.png" required>
           <img class="profile" id='image4' src="../assets/profile-images/Ellipse -4.png">
         </mat-radio-button>
-        <mat-radio-button class=profile-width id="profile5" name="profile" color="primary" ngDefaultControl
-          formControlName="profilePic" value="../assets/profile-images/Ellipse -5.png" required>
+        <mat-radio-button class=profile-width id="profile5" name="profile" color="primary" 
+          value="../assets/profile-images/Ellipse -5.png" required>
           <img class="profile" id='image5' src="../assets/profile-images/Ellipse -5.png">
         </mat-radio-button>
+        </mat-radio-group>
       </div>
     </div>
 
@@ -44,14 +46,14 @@
     <div class="row-content">
       <label class="label text" for="gender">Gender</label>
       <div>
-        <mat-radio-button type="radio" id="male" name="gender" color="primary" value="male" ngDefaultControl
-          formControlName="gender" required>
+        <mat-radio-group ngDefaultControl formControlName="gender">
+          <mat-radio-button type="radio" id="male" name="gender" color="primary" value="male" required>
           <label class="text" for="male">Male</label>
         </mat-radio-button>
-        <mat-radio-button type="radio" id="female" name="gender" color="primary" value="female" ngDefaultControl
-          formControlName="gender" required>
+        <mat-radio-button type="radio" id="female" name="gender" color="primary" value="female" required>
           <label class="text" for="female">Female</label>
         </mat-radio-button>
+        </mat-radio-group>
       </div>
     </div>
 
@@ -60,7 +62,7 @@
       <label class="label text" for="depatment">Department</label>
       <div *ngFor="let department of departments">
         <mat-checkbox #checkbox class="checkbox" type="checkbox" color="primary" [value]="department.value"
-          (change)="onCheckboxChange($event)">
+          (change)="onCheckboxChange($event)"[checked]="department.checked">
           <label class="text">{{department.name}}</label>
         </mat-checkbox>
       </div>
@@ -84,7 +86,6 @@
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
     </div>
-
 
     <!------Input Notes------->
     <div class="row-content">
