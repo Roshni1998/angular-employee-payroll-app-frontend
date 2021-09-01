@@ -132,14 +132,6 @@ export class AddComponent implements OnInit {
      return value;
    }
 
-  //  onSubmit() {
-  //    this.employee = this.employeeFormGroup.value;
-    //  this.httpService.addEmployeeData(this.employee).subscribe(response => {
-    //    console.log(response);
-    //    this.router.navigateByUrl("/home");
-    //    this.snackBar.open('Employee Added Successfully!', 'OK', {duration: 4000, verticalPosition: 'top'});
-    //  });
-
   onSubmit(){
     if(this.employeeFormGroup.invalid){
       if(this.employeeFormGroup.get('profilePic').untouched) {
